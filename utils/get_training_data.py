@@ -1,6 +1,6 @@
-import cv2
-import os, glob
-import numpy as np
+import glob
+import os
+
 from tqdm import tqdm
 
 from video_to_images import convert_to_images

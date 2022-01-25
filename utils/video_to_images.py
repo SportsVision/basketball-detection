@@ -1,6 +1,7 @@
-import cv2
 import os
-import numpy as np
+
+import cv2
+
 
 def convert_to_images(video_path, output_path, current_frame=0, sampling=0):
     print("Converting the video to images...")
@@ -14,12 +15,13 @@ def convert_to_images(video_path, output_path, current_frame=0, sampling=0):
 
         if sampling > 0:
             if current_frame % (sampling + 1) == 0:
-                cv2.imwrite(f'{output_path}/img{current_frame:04d}.jpg',image)    
+                cv2.imwrite(f'{output_path}/img{current_frame:04d}.jpg', image)
         else:
-            cv2.imwrite(f'{output_path}/img{current_frame:04d}.jpg',image)
+            cv2.imwrite(f'{output_path}/img{current_frame:04d}.jpg', image)
         current_frame += 1
-    
+
     return current_frame
+
 
 if __name__ == "__main__":
     videoname = 'michal1'
@@ -28,4 +30,3 @@ if __name__ == "__main__":
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     convert_to_images(video_path, output_path)
-

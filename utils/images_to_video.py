@@ -1,8 +1,7 @@
-import cv2
-import numpy as np
 import glob
-from tqdm import tqdm
 
+import cv2
+from tqdm import tqdm
 
 
 def convert_to_video(images_path, output_path, fps=240):
@@ -14,18 +13,17 @@ def convert_to_video(images_path, output_path, fps=240):
         progress_bar.set_description("Making a video")
         img = cv2.imread(filename)
         height, width, layers = img.shape
-        size = (width,height)
+        size = (width, height)
         img_array.append(img)
-    
 
     out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
-    
+
     for i in range(len(img_array)):
         out.write(img_array[i])
     out.release()
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     VIDEO_NAME = 'michal1'
     OUTPUT_PATH = f'data/{VIDEO_NAME}/'
-    convert_to_video(VIDEO_NAME,OUTPUT_PATH )
+    convert_to_video(VIDEO_NAME, OUTPUT_PATH)
